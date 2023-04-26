@@ -17,11 +17,13 @@
       left: 0;
       right: 0;
       z-index: 999;
+      display: flex;
+      align-items: center;
     }
 
     .header-logo {
-      display: inline-block;
-      margin-right: 30px;
+      display: flex;
+      align-items: center;
       font-weight: bold;
       font-size: 24px;
       line-height: 32px;
@@ -29,9 +31,13 @@
       text-decoration: none;
     }
 
+    .header-logo img {
+      margin-right: 10px;
+    }
+
     .header-nav {
       display: inline-block;
-      float: right;
+      margin-left: auto;
     }
 
     .header-nav ul {
@@ -57,7 +63,10 @@
 </head>
 <body>
   <header class="header">
-    <a class="header-logo" href="#">reelinsta</a>
+    <a class="header-logo" href="#">
+      <img src="/assets/favicon.ico" alt="favicon">
+      reelinsta
+    </a>
     <nav class="header-nav">
       <ul>
         <li><a href="">Instagram Video Downloader</a></li>
