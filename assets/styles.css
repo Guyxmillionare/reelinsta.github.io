@@ -1,11 +1,12 @@
+In your CSS code, you have set the `footer` to `position: relative` and `bottom: 0`, which means it will be positioned relative to its normal position at the bottom of the content. However, you have also set the `body` and `html` to `height: 100%`, which means the content will not fill up the entire height of the viewport.
+
+To fix this issue, you can set the `min-height` of the `body` to `100vh` and remove the `height` properties from both `body` and `html`. Here's the updated CSS code:
+
+```
 body {
   padding: 0;
   margin: 0;
-  height: 100%;
-}
-
-html {
-  height: 100%;
+  min-height: 100vh;
 }
 
 footer {
@@ -48,3 +49,6 @@ nav a:hover {
   color: #f00;
   background-color: #555;
 }
+``` 
+
+This should ensure that the footer is always at the bottom of the viewport, regardless of the height of the content.
