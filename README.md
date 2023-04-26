@@ -4,7 +4,7 @@
 	<title>homepage-instareel</title>
 </head>
 <body>
-	<!-- Your website content here -->
+	beginning
 </body>
 </html>
 
