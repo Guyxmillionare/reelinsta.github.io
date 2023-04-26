@@ -1,3 +1,15 @@
+.header-logo {
+  display: inline-block;
+  margin-right: 30px;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 32px;
+  color: #333333;
+  text-decoration: none;
+  /* add the following line */
+  left: 15cm;
+}
+
 body {
   padding: 0;
   margin: 0;
