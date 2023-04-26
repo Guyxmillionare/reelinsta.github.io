@@ -20,6 +20,10 @@
   color: #333333;
   text-decoration: none;
 }
+.header-logo img {
+  height: 16px;
+  width: 16px;
+}
 
 .header-nav {
   display: inline-block;
