@@ -97,3 +97,9 @@ nav a:hover {
   color: #f00;
   background-color: #555;
 }
+.header-logo img {
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+}
+
