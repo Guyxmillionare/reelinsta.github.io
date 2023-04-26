@@ -8,6 +8,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: 'Open Sans', sans-serif, Arial, sans-serif;
 }
 
 nav ul {
@@ -29,6 +30,7 @@ nav a {
   transition: color 0.3s ease;
   padding: 10px;
   font-size: 18px;
+  font-family: 'Open Sans', sans-serif, Arial, sans-serif;
 }
 
 nav a:hover {
