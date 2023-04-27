@@ -106,4 +106,31 @@ footer {
   color: #fff;
   text-decoration: none;
 }
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
 
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1;
+  background-color: Transparent;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.dropdown-menu li {
+  margin-bottom: 8px;
+}
+
+.dropdown-menu a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
