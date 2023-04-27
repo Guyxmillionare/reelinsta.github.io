@@ -135,5 +135,8 @@ footer {
   display: block;
 }
 .dropbtn {
-  padding: 10px 20px; /* add some space to the left and right of the button */
+  padding: 10px 25px; /* add some space to the left and right of the button */
+}
+.dropdown:first-child {
+  margin-right: 20px;
 }
