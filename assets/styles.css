@@ -14,7 +14,7 @@ footer {
 
 footer p {
   margin: 0;
-  font-size: 16px;
+  font-size: 14px; /* adjust font size */
 }
 
 nav ul {
@@ -27,7 +27,7 @@ nav ul {
 }
 
 nav li {
-  margin: 0 2cm; /* change the margin to 2cm */
+  margin: 0 1cm; /* reduce margin */
 }
 
 nav a {
@@ -54,6 +54,6 @@ nav a:hover {
 .footer-links a {
   color: #fff;
   text-decoration: none;
-  font-size: 16px;
-  margin-right: 4cm; /* add margin-right to create the space */
+  font-size: 14px; /* adjust font size */
+  margin-right: 1cm; /* adjust margin */
 }
