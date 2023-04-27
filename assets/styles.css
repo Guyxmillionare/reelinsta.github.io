@@ -27,8 +27,9 @@ nav ul {
 }
 
 nav li {
-  margin: 0 1cm;
+  margin: 0 0.5rem; /* or any other value you prefer */
 }
+
 
 nav a {
   color: #fff;
