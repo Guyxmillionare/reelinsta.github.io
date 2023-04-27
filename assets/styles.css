@@ -83,3 +83,11 @@ footer {
   color: #fff;
   text-decoration: none;
 }
+
+  /* header */
+    header {
+      background-color: transparent;
+      color: #fff;
+      font-size: 24px;
+      padding: 20px 0;
+    }
