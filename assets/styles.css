@@ -1,1 +1,55 @@
+/* Define a dark color palette */
+:root {
+  --primary-color: #121212;
+  --secondary-color: #1f1f1f;
+  --text-color: #f5f5f5;
+  --accent-color: #FF6347;
+}
+
+/* Set the background color to the primary color */
+body {
+  background-color: var(--primary-color);
+}
+
+/* Set the text color to the text color */
+body,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a {
+  color: var(--text-color);
+}
+
+/* Set the accent color for links */
+a {
+  color: var(--accent-color);
+}
+
+/* Set the background color for buttons */
+button,
+input[type="button"],
+input[type="submit"] {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+/* Set the background color for form elements */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: 4px;
+  padding: 8px;
+}
 
