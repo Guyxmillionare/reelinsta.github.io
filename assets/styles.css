@@ -134,3 +134,6 @@ footer {
 .dropdown:hover .dropdown-menu {
   display: block;
 }
+.dropbtn {
+  padding: 10px 50px; /* add some space to the left and right of the button */
+}
