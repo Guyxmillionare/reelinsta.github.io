@@ -1,20 +1,15 @@
+/* Styles for larger screens */
 footer {
   background-color: #333;
   color: #fff;
   padding: 20px 20px 20px 0;
-  position: fixed;
+  position: relative; /* changed from fixed */
   bottom: 0;
-  width: 100%;
+  max-width: 1200px; /* added max-width */
   height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-
-footer p {
-  margin: 0;
-  font-size: 14px;
 }
 
 nav ul {
@@ -30,7 +25,6 @@ nav li {
   margin: 0 0.5rem; /* or any other value you prefer */
 }
 
-
 nav a {
   color: #fff;
   text-decoration: none;
@@ -43,7 +37,27 @@ nav a:hover {
   color: #f00;
   background-color: #555;
 }
+
+footer p {
+  margin: 0;
+  font-size: 14px;
+}
+
 footer .col-md-6 {
   padding-left: 0;
   padding-right: 0;
 }
+
+/* Styles for smaller screens */
+@media (max-width: 768px) {
+  footer {
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+  }
+  
+  nav {
+    margin-bottom: 20px;
+  }
+}
+
