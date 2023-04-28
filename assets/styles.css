@@ -108,7 +108,7 @@ footer {
 }
 .dropdown {
   position: relative;
-  display: inline-block;
+ display: inline-block;
 }
 
 .dropdown-menu {
@@ -127,7 +127,7 @@ footer {
 }
 
 .dropdown-menu a {
-  color: #fff;
+  color: ;
   text-decoration: none;
 }
 
@@ -137,6 +137,7 @@ footer {
 .dropbtn {
   padding: 10px 25px; /* add some space to the left and right of the button */
 }
-.dropdown:first-child {
-  margin-right: 20px;
+.dropdown button.dropbtn {
+  background-color: transparent;
 }
+
