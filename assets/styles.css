@@ -57,7 +57,7 @@ footer {
   background-color: transparent;
   color: #fff;
   font-size: 20px;
-  padding: 0px 0px;
+  padding: 0px 0;
 }
 
 .container {
@@ -99,7 +99,7 @@ footer {
 }
 
 .header-links li {
-  margin-right: 0px;
+  margin-right: 20px;
 }
 
 .header-links a {
@@ -139,6 +139,14 @@ footer {
 }
 .dropdown button.dropbtn {
   background-color: transparent;
-    font-family: inherit;
-  font-size: 18px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  margin-right: 10px;
+  height: 20px;
+  width: 20px;
 }
