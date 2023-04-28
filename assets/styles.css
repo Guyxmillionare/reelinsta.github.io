@@ -145,4 +145,9 @@ footer {
 .logo {
   margin-left: 60px;
 }
-
+h1 {
+  font-family: inherit;
+   margin-left: 410px;
+  
+  /* Other styling properties */
+}
