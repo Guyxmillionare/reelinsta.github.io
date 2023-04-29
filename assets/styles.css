@@ -148,7 +148,14 @@ footer {
 h1 {
   font-family: inherit;
    margin-left: 30px;
-   margin-top: 70px;
+   margin-top: 50px;
   
   /* Other styling properties */
+}
+p {
+  font-size: 23px;
+  color: inherit;
+  margin-left: 30px;
+  font-family: inherit;
+   margin-top: 50px;
 }
