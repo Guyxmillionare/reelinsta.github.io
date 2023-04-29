@@ -195,3 +195,204 @@ h4 a {
   color: cyan;
   margin-left: 6px;
 }
+/* Define a dark color palette */
+:root {
+  --primary-color: #121212;
+  --secondary-color: #1f1f1f;
+  --text-color: #f5f5f5;
+  --accent-color: #FF6347;
+}
+
+/* Set the background color to the primary color */
+body {
+  background-color: var(--primary-color);
+}
+
+/* Set the text color to the text color */
+body,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a {
+  color: var(--text-color);
+}
+
+/* Set the accent color for links */
+a {
+  color: var(--accent-color);
+}
+
+/* Set the background color for buttons */
+button,
+input[type="button"],
+input[type="submit"] {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+/* Set the background color for form elements */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: 4px;
+  padding: 8px;
+}
+/* footer */
+footer {
+  background-color: transparent;
+  color: #fff;
+  font-size: 20px;
+  padding: 0px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.footer-links li {
+  margin-right: 27px;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+}
+
+  /* header */
+    header {
+      background-color: transparent;
+      color: #fff;
+      font-size: 20px;
+      padding: 5px 0;
+    }
+.header-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.header-links li {
+  margin-right: 20px;
+}
+
+.header-links a {
+  color: #fff;
+  text-decoration: none;
+}
+.dropdown {
+  position: relative;
+ display: inline-block;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1;
+  background-color: Transparent;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.dropdown-menu li {
+  margin-bottom: 8px;
+}
+
+.dropdown-menu a {
+  color: ;
+  text-decoration: none;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+.dropbtn {
+  padding: 10px 25px; /* add some space to the left and right of the button */
+}
+.dropdown button.dropbtn {
+  background-color: transparent;
+  font-size: 18px;
+  
+}
+.logo {
+  margin-left: 60px;
+}
+h1 {
+  font-family: inherit;
+   margin-left: 30px;
+   margin-top: 128px;
+  
+  /* Other styling properties */
+}
+p {
+  font-size: 23px;
+  color: inherit;
+  margin-left: 30px;
+  font-family: inherit;
+   margin-top: 50px;
+}
+h3 {
+    font-family: inherit;
+   margin-left: 30px;
+   margin-top: 30px;
+  font-size: 25px;
+}
+h4 {
+    font-family: inherit;
+   margin-left: 30px;
+   margin-top: 30px;
+  font-size: 18px;
+}
+h2 {
+    font-family: inherit;
+   margin-left: 30px;
+   margin-top: 30px;
+  font-size: 27px;
+}
+
+strong {
+   margin-bottom: 50px;
+   font-weight: bold;
+  margin-left: 30px;
+  font-size: 21px;
+  border: 1px solid white;
+  padding: 0px;
+   line-height: 1.8; /* adjust the value as needed */  
+}
+strong a {
+  color: cyan;
+  margin-left: 6px;
+}
+h4 a {
+  color: cyan;
+  margin-left: 6px;
+}
+p a {
+  color: cyan;
+  
+}
