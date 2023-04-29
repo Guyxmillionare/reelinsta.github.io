@@ -178,3 +178,16 @@ h2 {
   font-size: 27px;
 }
 
+strong {
+   margin-bottom: 50px;
+   font-weight: bold;
+  margin-left: 30px;
+  font-size: 21px;
+  border: 1px solid white;
+  padding: 0px;
+   line-height: 1.8; /* adjust the value as needed */  
+}
+strong a {
+  color: cyan;
+  margin-left: 6px;
+}
