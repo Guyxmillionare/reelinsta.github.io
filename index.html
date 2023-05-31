@@ -170,6 +170,39 @@
       border-top: 5px solid #ffffff;
       transform: translate(-50%, -50%);
     }
+    @media only screen and (max-width: 600px) {
+      .container {
+        padding: 10px;
+      }
+      
+      h1 {
+        font-size: 20px;
+      }
+      
+      input[type="text"], button[type="submit"] {
+        max-width: 300px;
+      }
+      
+      header h1 {
+        font-size: 20px;
+      }
+      
+      nav ul li a {
+        padding: 3px 7px;
+      }
+    }
+    footer {
+      background-color: #333333;
+      color: #ffffff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    footer a {
+      color: #ffffff;
+      text-decoration: none;
+      margin: 0 5px;
+    }
   </style>
 </head>
 <body>
@@ -266,5 +299,12 @@
       return extension;
     }
   </script>
+   <footer>
+    &copy; 2023 Reelinsta.club<br>
+    <a href="#">About</a> |
+    <a href="#">Terms of Service</a> |
+    <a href="#">Privacy Policy</a> |
+    <a href="#">Contact</a>
+  </footer>
 </body>
 </html>
