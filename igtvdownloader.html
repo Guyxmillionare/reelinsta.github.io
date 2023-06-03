@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/codeless/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="codeless/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="codeless/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/codeless/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/codeless/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/codeless/android-chrome-512x512.png">
+  <link rel="manifest" href="/codeless/site.webmanifest">
+  <title>Instagram video Downloader</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+    body {
+      background-color: #ffffff;
+      color: #333333;
+      font-family: 'Poppins', Arial, sans-serif;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-img {
+      width: 50px;
+      height: 50px;
+      margin-right: 10px;
+    }
+
+    form {
+      display: flex;
+      align-items: center;
+    }
+
+    input[type="text"] {
+      flex: 1;
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    button[type="submit"] {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #333333;
+      color: #ffffff;
+      border: none;
+      cursor: pointer;
+    }
+
+    header {
+      background-color: #333333;
+      color: #ffffff;
+      padding: 20px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header h1 {
+      margin: 0;
+      margin-top: 10px;
+      font-size: 24px;
+    }
+
+    nav ul {
+      list-style: none;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      display: inline-block;
+      margin-right: 10px;
+      position: relative;
+    }
+
+    nav ul li a {
+      color: #ffffff;
+      text-decoration: none;
+      padding: 5px 10px;
+      margin-bottom: 5px;
+      position: relative;
+    }
+
+    nav ul li a:hover {
+      background-color: #ffffff;
+      color: #333333;
+    }
+
+    nav ul li ul {
+      display: none;
+      position: absolute;
+      background-color: #333333;
+      top: 100%;
+      left: 0;
+      width: 200px;
+      padding: 0;
+      z-index: 1;
+    }
+
+    nav ul li:hover>ul {
+      display: block;
+    }
+
+    nav ul li ul li {
+      display: block;
+    }
+
+    nav ul li ul li a {
+      padding: 10px;
+      color: #ffffff;
+      display: block;
+      opacity: 1;
+    }
+
+    nav ul li ul li a:hover {
+      background-color: #555555;
+    }
+
+    /* Arrow Icon */
+    .sub-menu-icon {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin-left: 5px;
+      vertical-align: middle;
+      position: relative;
+    }
+
+    .sub-menu-icon svg {
+      fill: #ffffff;
+      stroke: #ffffff;
+      stroke-width: 1.5;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    /* Hover Button Icon */
+    .hover-button-icon {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin-left: 5px;
+      vertical-align: middle;
+      position: relative;
+    }
+
+    .hover-button-icon::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 5px solid #ffffff;
+      transform: translate(-50%, -50%);
+    }
+
+    @media only screen and (max-width: 600px) {
+      .container {
+        padding: 10px;
+      }
+
+      h1 {
+        font-size: 20px;
+      }
+
+      input[type="text"],
+      button[type="submit"] {
+        max-width: 300px;
+      }
+
+      header h1 {
+        font-size: 20px;
+      }
+
+      nav ul li a {
+        padding: 3px 7px;
+      }
+    }
+
+    footer {
+      background-color: #333333;
+      color: #ffffff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    footer a {
+      color: #ffffff;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+
+    .heading-container {
+      background-color: #f9f9f9;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #333333;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #666666;
+      font-size: 16px;
+      margin-bottom: 0;
+    }
+
+    .section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      margin: 20px 0;
+    }
+
+    .image-container {
+      text-align: center;
+    }
+
+    .image-container img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .content-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .content-container h2 {
+      color: #333333;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .content-container p {
+      color: #666666;
+      font-size: 16px;
+      margin-bottom: 0;
+      line-height: 1.5;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .content-container p:before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.5);
+      transform: skew(-20deg);
+      z-index: -1;
+    }
+
+    .content-container p:after {
+      content: "";
+      position: absolute;
+      bottom: 10px;
+      right: 0;
+      width: 50%;
+      height: 50%;
+      background-color: rgba(255, 255, 255, 0.5);
+      transform: skew(-20deg);
+      z-index: -1;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      /* Increase the font size */
+      color: #333333;
+      /* Change the color */
+    }
+
+    p {
+      color: #666666;
+      font-size: 18px;
+      /* Increase the font size */
+      margin-bottom: 0;
+      line-height: 1.5;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    p:before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.5);
+      transform: skew(-20deg);
+      z-index: -1;
+    }
+
+    p:after {
+      content: "";
+      position: absolute;
+      bottom: 10px;
+      right: 0;
+      width: 50%;
+      height: 50%;
+      background-color: rgba(255, 255, 255, 0.5);
+      transform: skew(-20deg);
+      z-index: -1;
+    }
+
+    h3 {
+      text-align: center;
+      color: #555555;
+      /* Update the color as per your theme */
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    h4 {
+      text-align: center;
+      color: #666666;
+      font-size: 18px;
+      margin-bottom: 0;
+      line-height: 1.5;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    h4:before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.5);
+      transform: skew(-20deg);
+      z-index: -1;
+    }
+
+    h4:after {
+      content: "";
+      position: absolute;
+      bottom: 10px;
+      right: 0;
+      width: 50%;
+      height: 50%;
+      background-color: rgba(255, 255, 255, 0.5);
+      transform: skew(-20deg);
+      z-index: -1;
+    }
+
+
+
+    strong {
+      display: block;
+      font-weight: bold;
+      color: #FF0000;
+      text-align: center;
+      /* Update the color as per your theme */
+    }
+
+    h2 {
+      text-align: center;
+      color: #080808;
+      /* Update the color as per your theme */
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>
+      <img class="logo-img" src="/codeless/favicon-32x32.png" alt="Logo">
+      <a href="/index.html" style="color: #ffffff; text-decoration: none;">Instagram Downloader</a>
+    </h1>
+    <nav>
+      <ul>
+        <li><a href="/instavideodownloader.html">Instagram Video Downloader</a></li>
+
+        <li>
+          <a href="#">
+            Instagram Downloader
+            <span class="hover-button-icon"></span>
+          </a>
+          <ul>
+            <li><a href="/instaphotodownloader.html">Instagram Photo Downloader</a></li>
+            <li><a href="/reelsdownloader.html">Reels Downloader</a></li>
+            <li><a href="/Storydownloader.html">Story Downloader</a></li>
+            <li><a href="/igtvdownloader.html">IGTV Downloader</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <div class="heading-container">
+    <h2>Instagram IGTV Downloader</h2>
+    <p>Download Instagram photos and videos privately and securely!</p>
+  </div>
+  <div class="container">
+    <form id="downloadForm">
+      <input type="text" id="postUrl" placeholder="Enter Instagram Post URL">
+      <button type="submit">Download</button>
+    </form>
+  </div>
+  <script>
+    document.getElementById("downloadForm").addEventListener("submit", function (event) {
+      event.preventDefault();
+      var inputUrl = document.getElementById("postUrl").value;
+      downloadFromInstagram(inputUrl);
+    });
+
+    function downloadFromInstagram(url) {
+      var regex = /https:\/\/www.instagram.com\/p\/([^/]+)\//;
+      var match = url.match(regex);
+      if (!match) {
+        console.log("Invalid Instagram URL");
+        return;
+      }
+      var mediaIdentifier = match[1];
+      var downloadUrl = `https://www.instagram.com/p/${mediaIdentifier}/?__a=1`;
+
+      fetch(downloadUrl)
+        .then(response => response.json())
+        .then(data => {
+          var mediaType = data.graphql.shortcode_media.__typename;
+          var mediaUrl;
+
+          switch (mediaType) {
+            case 'GraphImage':
+              mediaUrl = data.graphql.shortcode_media.display_url;
+              break;
+            case 'GraphVideo':
+              mediaUrl = data.graphql.shortcode_media.video_url;
+              break;
+            case 'GraphSidecar':
+              mediaUrl = data.graphql.shortcode_media.edge_sidecar_to_children.edges[0].node.display_url;
+              break;
+            default:
+              console.log("Unsupported media type:", mediaType);
+              return;
+          }
+
+          fetch(mediaUrl)
+            .then(response => response.blob())
+            .then(blob => {
+              var anchor = document.createElement('a');
+              anchor.href = URL.createObjectURL(blob);
+              anchor.download = `instagram_media.${getFileType(mediaUrl)}`;
+              anchor.click();
+            })
+            .catch(error => {
+              console.log("Download failed:", error);
+            });
+        })
+        .catch(error => {
+          console.log("Error:", error);
+        });
+    }
+    function getFileType(url) {
+      var extension = url.split('.').pop();
+      if (extension.includes("?")) {
+        extension = extension.split("?")[0];
+      }
+      return extension;
+    }
+  </script>
+  <div class="section">
+    <div class="image-container">
+      <img src="/codeless/icons8-igtv-200 (1).png" alt="Image Description">
+    </div>
+    <div class="content-container">
+      <h2>Download Instagram Igtv </h2>
+      <p>Discover the convenience of downloading Instagram IGTV videos with our cutting-edge IGTV Downloader. Seamlessly
+        save and enjoy your favorite long-form videos from Instagram with just a few simple steps.
+
+        Our user-friendly tool allows you to effortlessly retrieve IGTV videos from any Instagram account. Whether it's
+        an insightful tutorial, an entertaining vlog, or a captivating documentary, our downloader empowers you to build
+        a personal collection of engaging content.
+
+        With our downloader, you can watch IGTV videos offline at your convenience. No more worrying about limited
+        internet connectivity or time restrictions. Simply download the videos and enjoy them anytime, anywhere.</p>
+    </div>
+  </div>
+  <h1>The Best Instagram IGTV Downloader - Why Download Instagram IGTV with ReelInsta?</h1>
+<p>IGTV (Instagram TV) has become a popular platform for sharing long-form video content on Instagram. If you're looking to download and save IGTV videos for offline viewing or personal use, you need a reliable and efficient IGTV downloader. In this blog post, we will explore the best Instagram IGTV downloader, ReelInsta, and explain why it is the preferred choice for downloading IGTV videos. Additionally, we will guide you through the process of using ReelInsta to effortlessly download your desired IGTV videos.</p>
+<h1>Why Download Instagram IGTV with ReelInsta?</h1>
+<p>ReelInsta stands out as the ideal IGTV downloader for several reasons. Firstly, it offers a user-friendly interface that simplifies the downloading process. With just a few clicks, you can save any IGTV video you wish. Moreover, ReelInsta ensures that the downloaded IGTV videos are preserved with their original quality and resolution, allowing you to enjoy them in all their visual glory.
+
+One of the key advantages of ReelInsta is its ability to download IGTV videos from both public accounts and your own profile. This means you can save IGTV videos from your favorite creators, influencers, or brands, and watch them at your convenience, even without an internet connection.
+
+Another notable feature of ReelInsta is its compatibility with different devices and operating systems. Whether you're using a desktop computer, smartphone, or tablet, ReelInsta seamlessly works across all platforms. This versatility ensures that you can download IGTV videos anytime, anywhere, regardless of the device you are using.</p>
+<h1>How Do I Use ReelInsta IGTV Downloader?</h1>
+<p>Using ReelInsta to download Instagram IGTV videos is a simple and straightforward process. Follow the steps below:
+
+1.Visit the ReelInsta website (www.reelinsta.com) using your preferred browser.
+2.Open Instagram separately and find the IGTV video you want to download.
+3.Click on the IGTV video to view it in full-screen mode.
+4.Copy the video's URL from your browser's address bar.
+5.Return to the ReelInsta website and paste the copied URL into the provided field.
+6.Click the "Download" button, and ReelInsta will start fetching the IGTV video.
+7.Once the download is complete, the IGTV video will be saved to your device.</p>
+<h1>Conclusion:</h1>
+<p>ReelInsta has emerged as the ultimate solution for effortlessly downloading Instagram IGTV videos. With its user-friendly interface, compatibility across devices, and the ability to download videos from both public accounts and your own profile, ReelInsta has gained popularity among Instagram users worldwide. By following the simple steps mentioned above, you can download and enjoy your favorite IGTV videos at any time and on any device. Elevate your IGTV viewing experience with ReelInsta and never miss out on captivating long-form content.</p>
+  <footer>
+    &copy; 2023 Reelinsta.club<br>
+    <a href="/about.html">About</a> |
+    <a href="/Termsofservice.html">Terms of Service</a> |
+    <a href="/Privacypolicy.html">Privacy Policy</a> |
+    <a href="/contact.html">Contact</a>
+  </footer>
+</body>
+
+</html>

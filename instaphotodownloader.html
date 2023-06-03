@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/codeless/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="codeless/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="codeless/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/codeless/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/codeless/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/codeless/android-chrome-512x512.png">
+<link rel="manifest" href="/codeless/site.webmanifest">
+  <title>Instagram video Downloader</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+    body {
+      background-color: #ffffff;
+      color: #333333;
+      font-family: 'Poppins', Arial, sans-serif;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-img {
+      width: 50px;
+      height: 50px;
+      margin-right: 10px;
+    }
+
+    form {
+      display: flex;
+      align-items: center;
+    }
+
+    input[type="text"] {
+      flex: 1;
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    button[type="submit"] {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #333333;
+      color: #ffffff;
+      border: none;
+      cursor: pointer;
+    }
+
+    header {
+      background-color: #333333;
+      color: #ffffff;
+      padding: 20px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header h1 {
+      margin: 0;
+      margin-top: 10px;
+      font-size: 24px;
+    }
+
+    nav ul {
+      list-style: none;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      display: inline-block;
+      margin-right: 10px;
+      position: relative;
+    }
+
+    nav ul li a {
+      color: #ffffff;
+      text-decoration: none;
+      padding: 5px 10px;
+      margin-bottom: 5px;
+      position: relative;
+    }
+
+    nav ul li a:hover {
+      background-color: #ffffff;
+      color: #333333;
+    }
+
+    nav ul li ul {
+      display: none;
+      position: absolute;
+      background-color: #333333;
+      top: 100%;
+      left: 0;
+      width: 200px;
+      padding: 0;
+      z-index: 1;
+    }
+
+    nav ul li:hover > ul {
+      display: block;
+    }
+
+    nav ul li ul li {
+      display: block;
+    }
+
+    nav ul li ul li a {
+      padding: 10px;
+      color: #ffffff;
+      display: block;
+      opacity: 1;
+    }
+
+    nav ul li ul li a:hover {
+      background-color: #555555;
+    }
+
+    /* Arrow Icon */
+    .sub-menu-icon {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin-left: 5px;
+      vertical-align: middle;
+      position: relative;
+    }
+
+    .sub-menu-icon svg {
+      fill: #ffffff;
+      stroke: #ffffff;
+      stroke-width: 1.5;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    /* Hover Button Icon */
+    .hover-button-icon {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin-left: 5px;
+      vertical-align: middle;
+      position: relative;
+    }
+
+    .hover-button-icon::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 5px solid #ffffff;
+      transform: translate(-50%, -50%);
+    }
+    @media only screen and (max-width: 600px) {
+      .container {
+        padding: 10px;
+      }
+      
+      h1 {
+        font-size: 20px;
+      }
+      
+      input[type="text"], button[type="submit"] {
+        max-width: 300px;
+      }
+      
+      header h1 {
+        font-size: 20px;
+      }
+      
+      nav ul li a {
+        padding: 3px 7px;
+      }
+    }
+    footer {
+      background-color: #333333;
+      color: #ffffff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    footer a {
+      color: #ffffff;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+    .heading-container {
+      background-color: #f9f9f9;
+      padding: 20px;
+      text-align: center;
+    }
+
+   
+    h2 {
+      color: #333333;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #666666;
+      font-size: 16px;
+      margin-bottom: 0;
+    }
+
+    .section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      margin: 20px 0;
+    }
+
+    .image-container {
+      text-align: center;
+    }
+
+    .image-container img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .content-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .content-container h2 {
+      color: #333333;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .content-container p {
+      color: #666666;
+      font-size: 16px;
+      margin-bottom: 0;
+      line-height: 1.5;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .content-container p:before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.5);
+      transform: skew(-20deg);
+      z-index: -1;
+    }
+
+    .content-container p:after {
+      content: "";
+      position: absolute;
+      bottom: 10px;
+      right: 0;
+      width: 50%;
+      height: 50%;
+      background-color: rgba(255, 255, 255, 0.5);
+      transform: skew(-20deg);
+      z-index: -1;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      /* Increase the font size */
+      color: #333333;
+      /* Change the color */
+    }
+
+    p {
+      color: #666666;
+      font-size: 18px;
+      /* Increase the font size */
+      margin-bottom: 0;
+      line-height: 1.5;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    p:before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.5);
+      transform: skew(-20deg);
+      z-index: -1;
+    }
+
+    p:after {
+      content: "";
+      position: absolute;
+      bottom: 10px;
+      right: 0;
+      width: 50%;
+      height: 50%;
+      background-color: rgba(255, 255, 255, 0.5);
+      transform: skew(-20deg);
+      z-index: -1;
+    }
+
+    h3 {
+      text-align: center;
+      color: #555555;
+      /* Update the color as per your theme */
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    h4 {
+  text-align: center;
+  color: #666666;
+  font-size: 18px;
+  margin-bottom: 0;
+  line-height: 1.5;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+h4:before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  transform: skew(-20deg);
+  z-index: -1;
+}
+
+h4:after {
+  content: "";
+  position: absolute;
+  bottom: 10px;
+  right: 0;
+  width: 50%;
+  height: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  transform: skew(-20deg);
+  z-index: -1;
+}
+
+
+
+    strong {
+      display: block;
+      font-weight: bold;
+      color: #FF0000;
+      text-align: center;
+      /* Update the color as per your theme */
+    }
+    h2 {
+      text-align: center;
+      color: #080808;
+      /* Update the color as per your theme */
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>
+      <img class="logo-img" src="/codeless/favicon-32x32.png" alt="Logo">
+      <a href="/index.html" style="color: #ffffff; text-decoration: none;">Instagram Downloader</a>
+    </h1>
+    <nav>
+      <ul>
+        <li><a href="/instavideodownloader.html">Instagram Video Downloader</a></li>
+        
+        <li>
+          <a href="#">
+            Instagram Downloader
+            <span class="hover-button-icon"></span>
+          </a>
+          <ul>
+            <li><a href="/instaphotodownloader.html">Instagram Photo Downloader</a></li>
+            <li><a href="/reelsdownloader.html">Reels Downloader</a></li>
+            <li><a href="/Storydownloader.html">Story Downloader</a></li>
+            <li><a href="/igtvdownloader.html">IGTV Downloader</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <div class="heading-container">
+    <h2>Instagram Photo Downloader</h2>
+    <p>Download Instagram photos and videos privately and securely!</p>
+  </div>
+  <div class="container">
+    <form id="downloadForm">
+      <input type="text" id="postUrl" placeholder="Enter Instagram Post URL">
+      <button type="submit">Download</button>
+    </form>
+  </div>
+  <script>
+    document.getElementById("downloadForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      var inputUrl = document.getElementById("postUrl").value;
+      downloadFromInstagram(inputUrl);
+    });
+
+    function downloadFromInstagram(url) {
+      var regex = /https:\/\/www.instagram.com\/p\/([^/]+)\//;
+      var match = url.match(regex);
+      if (!match) {
+        console.log("Invalid Instagram URL");
+        return;
+      }
+      var mediaIdentifier = match[1];
+      var downloadUrl = `https://www.instagram.com/p/${mediaIdentifier}/?__a=1`;
+
+      fetch(downloadUrl)
+        .then(response => response.json())
+        .then(data => {
+          var mediaType = data.graphql.shortcode_media.__typename;
+          var mediaUrl;
+
+          switch (mediaType) {
+            case 'GraphImage':
+              mediaUrl = data.graphql.shortcode_media.display_url;
+              break;
+            case 'GraphVideo':
+              mediaUrl = data.graphql.shortcode_media.video_url;
+              break;
+            case 'GraphSidecar':
+              mediaUrl = data.graphql.shortcode_media.edge_sidecar_to_children.edges[0].node.display_url;
+              break;
+            default:
+              console.log("Unsupported media type:", mediaType);
+              return;
+          }
+
+          fetch(mediaUrl)
+            .then(response => response.blob())
+            .then(blob => {
+              var anchor = document.createElement('a');
+              anchor.href = URL.createObjectURL(blob);
+              anchor.download = `instagram_media.${getFileType(mediaUrl)}`;
+              anchor.click();
+            })
+            .catch(error => {
+              console.log("Download failed:", error);
+            });
+        })
+        .catch(error => {
+          console.log("Error:", error);
+        });
+    }
+    function getFileType(url) {
+      var extension = url.split('.').pop();
+      if (extension.includes("?")) {
+        extension = extension.split("?")[0];
+      }
+      return extension;
+    }
+  </script>
+  <div class="section">
+    <div class="image-container">
+      <img src="/codeless/icons8-instagram-old-200.png" alt="Image Description">
+    </div>
+    <div class="content-container">
+      <h2>Download Instagram Photos </h2>
+      <p>"Unlock the power of preserving your favorite Instagram moments with our Instagram Photo Downloader. With a
+        simple and intuitive process, you can now effortlessly download and save high-quality Instagram photos directly
+        to your device.
+
+        Our downloader allows you to capture the beauty and creativity of Instagram photography by easily extracting the
+        photo's URL. Simply navigate to the desired photo on the Instagram app or website, click on the three dots at
+        the top right corner of the photo, and select the 'Copy Link' option. Paste the link into our downloader, and
+        watch as the photo is swiftly downloaded and stored on your device.</p>
+    </div>
+  </div>
+  <h1> Best Instagram Photo Downloader - Why Download Instagram Photos with ReelInsta?</h1>
+  <p>Instagram is undoubtedly a hub for captivating visual content, including stunning photographs. If you're an Instagram user who wishes to download and save these captivating photos for offline viewing or personal use, you need a reliable and efficient Instagram photo downloader. In this blog post, we will explore the best Instagram photo downloader, ReelInsta, and explain why it is the preferred choice for downloading Instagram photos. Additionally, we will guide you through the process of using ReelInsta to effortlessly download your favorite Instagram photos.</p>
+  <h1>Why Download Instagram Photos with ReelInsta?</h1> 
+  <p>ReelInsta is the ideal Instagram photo downloader for several reasons. Firstly, it offers a user-friendly interface that makes the downloading process simple and straightforward. With just a few clicks, you can save any Instagram photo you desire. Moreover, ReelInsta ensures that the downloaded photos retain their original resolution and quality, allowing you to enjoy the images in all their visual glory.
+
+    One of the standout features of ReelInsta is its compatibility with various platforms and devices. Whether you're using a desktop computer, smartphone, or tablet, ReelInsta works seamlessly across all devices and operating systems. This versatility ensures that you can download Instagram photos at your convenience, regardless of the device you are using.
+    
+    Another noteworthy advantage of ReelInsta is its speed. This downloader is designed to swiftly retrieve Instagram photos, minimizing waiting times and enabling you to enjoy your downloaded content promptly. With ReelInsta, you can effortlessly save Instagram photos to your device, allowing you to access them offline or share them with others.</p>
+  <h1>How Do I Use ReelInsta Photo Downloader?</h1>
+  <p>Using ReelInsta to download Instagram photos is incredibly easy. Here's a step-by-step guide:
+
+    1.Visit the ReelInsta website (www.reelinsta.com) using your preferred browser.
+    2.Open Instagram separately and find the photo you want to download.
+    3.Click on the three dots (options menu) above the photo and select "Copy Link."
+    4.Return to the ReelInsta website and paste the copied link into the provided field.
+    5.Click the "Download" button, and ReelInsta will start fetching the photo.
+    6.Once the download is complete, select the desired quality and format for the saved photo.
+    7.Finally, click the "Download" button again, and the Instagram photo will be saved to your device.</p>
+    <h1>Conclusion:</h1>
+    <p>ReelInsta has established itself as the ultimate solution for downloading Instagram photos effortlessly. With its user-friendly interface, compatibility across platforms, fast download speeds, and preservation of photo quality, ReelInsta has become a popular choice among Instagram users worldwide. By following the simple steps mentioned above, you can download and enjoy your favorite Instagram photos whenever and wherever you desire. Embrace the power of ReelInsta and enhance your Instagram photo viewing experience to new heights.</p>
+    <footer>
+    &copy; 2023 Reelinsta.club<br>
+    <a href="/about.html">About</a> |
+    <a href="/Termsofservice.html">Terms of Service</a> |
+    <a href="/Privacypolicy.html">Privacy Policy</a> |
+    <a href="/contact.html">Contact</a>
+  </footer>
+</body>
+</html>
