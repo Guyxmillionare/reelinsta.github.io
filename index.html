@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/codeless/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="codeless/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="codeless/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/codeless/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/codeless/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/codeless/android-chrome-512x512.png">
+  <link rel="manifest" href="/codeless/site.webmanifest">
+
+  <title>Instagram Downloader | Download Video, Photo, Reels, Story, IGTV | Reelinsta</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+    body {
+      background-color: #ffffff;
+      color: #333333;
+      font-family: 'Poppins', Arial, sans-serif;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-img {
+      width: 50px;
+      height: 50px;
+      margin-right: 10px;
+    }
+
+    form {
+      display: flex;
+      align-items: center;
+    }
+
+    input[type="text"] {
+      flex: 1;
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    button[type="submit"] {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #333333;
+      color: #ffffff;
+      border: none;
+      cursor: pointer;
+    }
+
+    header {
+      background-color: #333333;
+      color: #ffffff;
+      padding: 20px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header h1 {
+      margin: 0;
+      margin-top: 10px;
+      font-size: 24px;
+    }
+
+    nav ul {
+      list-style: none;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      display: inline-block;
+      margin-right: 10px;
+      position: relative;
+    }
+
+    nav ul li a {
+      color: #ffffff;
+      text-decoration: none;
+      padding: 5px 10px;
+      margin-bottom: 5px;
+      position: relative;
+    }
+
+    nav ul li a:hover {
+      background-color: #ffffff;
+      color: #333333;
+    }
+
+    nav ul li ul {
+      display: none;
+      position: absolute;
+      background-color: #333333;
+      top: 100%;
+      left: 0;
+      width: 200px;
+      padding: 0;
+      z-index: 1;
+    }
+
+    nav ul li:hover>ul {
+      display: block;
+    }
+
+    nav ul li ul li {
+      display: block;
+    }
+
+    nav ul li ul li a {
+      padding: 10px;
+      color: #ffffff;
+      display: block;
+      opacity: 1;
+    }
+
+    nav ul li ul li a:hover {
+      background-color: #555555;
+    }
+
+    /* Arrow Icon */
+    .sub-menu-icon {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin-left: 5px;
+      vertical-align: middle;
+      position: relative;
+    }
+
+    .sub-menu-icon svg {
+      fill: #ffffff;
+      stroke: #ffffff;
+      stroke-width: 1.5;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    /* Hover Button Icon */
+    .hover-button-icon {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin-left: 5px;
+      vertical-align: middle;
+      position: relative;
+    }
+
+    .hover-button-icon::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 5px solid #ffffff;
+      transform: translate(-50%, -50%);
+    }
+
+    @media only screen and (max-width: 600px) {
+      .container {
+        padding: 10px;
+      }
+
+      h1 {
+        font-size: 20px;
+      }
+
+      input[type="text"],
+      button[type="submit"] {
+        max-width: 300px;
+      }
+
+      header h1 {
+        font-size: 20px;
+      }
+
+      nav ul li a {
+        padding: 3px 7px;
+      }
+    }
+
+    footer {
+      background-color: #333333;
+      color: #ffffff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    footer a {
+      color: #ffffff;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+
+    .heading-container {
+      background-color: #f9f9f9;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #333333;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #666666;
+      font-size: 16px;
+      margin-bottom: 0;
+    }
+
+    .section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      margin: 20px 0;
+    }
+
+    .image-container {
+      text-align: center;
+    }
+
+    .image-container img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .content-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .content-container h2 {
+      color: #333333;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .content-container p {
+      color: #666666;
+      font-size: 16px;
+      margin-bottom: 0;
+      line-height: 1.5;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .content-container p:before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.5);
+      transform: skew(-20deg);
+      z-index: -1;
+    }
+
+    .content-container p:after {
+      content: "";
+      position: absolute;
+      bottom: 10px;
+      right: 0;
+      width: 50%;
+      height: 50%;
+      background-color: rgba(255, 255, 255, 0.5);
+      transform: skew(-20deg);
+      z-index: -1;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      /* Increase the font size */
+      color: #333333;
+      /* Change the color */
+    }
+
+    p {
+      color: #666666;
+      font-size: 18px;
+      /* Increase the font size */
+      margin-bottom: 0;
+      line-height: 1.5;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    p:before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.5);
+      transform: skew(-20deg);
+      z-index: -1;
+    }
+
+    p:after {
+      content: "";
+      position: absolute;
+      bottom: 10px;
+      right: 0;
+      width: 50%;
+      height: 50%;
+      background-color: rgba(255, 255, 255, 0.5);
+      transform: skew(-20deg);
+      z-index: -1;
+    }
+
+    h3 {
+      text-align: center;
+      color: #555555;
+      /* Update the color as per your theme */
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    h4 {
+  text-align: center;
+  color: #666666;
+  font-size: 18px;
+  margin-bottom: 0;
+  line-height: 1.5;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+h4:before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  transform: skew(-20deg);
+  z-index: -1;
+}
+
+h4:after {
+  content: "";
+  position: absolute;
+  bottom: 10px;
+  right: 0;
+  width: 50%;
+  height: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  transform: skew(-20deg);
+  z-index: -1;
+}
+
+
+
+    strong {
+      font-weight: bold;
+      color: #FF0000;
+      /* Update the color as per your theme */
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>
+      <img class="logo-img" src="/codeless/favicon.ico" alt="Logo">
+      <a href="/index.html" style="color: #ffffff; text-decoration: none;">Instagram Downloader</a>
+    </h1>
+    <nav>
+      <ul>
+        <li><a href="/instavideodownloader.html">Instagram Video Downloader</a></li>
+        <li><a href="/Privatedownloader.html" style="padding: 5px 7px;">Private Downloader</a></li>
+        <li>
+          <a href="#">
+            Instagram Downloader
+            <span class="hover-button-icon"></span>
+          </a>
+          <ul>
+            <li><a href="/instaphotodownloader.html">Instagram Photo Downloader</a></li>
+            <li><a href="/reelsdownloader.html">Reels Downloader</a></li>
+            <li><a href="/Storydownloader.html">Story Downloader</a></li>
+            <li><a href="/igtvdownloader.html">IGTV Downloader</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <div class="heading-container">
+    <h2>Instagram Downloader</h2>
+    <p>Download Videos, Photos, Reels, Stories and IGTV from Instagram</p>
+  </div>
+  <div class="container">
+    <form id="downloadForm">
+      <input type="text" id="postUrl" placeholder="Enter Instagram Post URL">
+      <button type="submit">Download</button>
+    </form>
+  </div>
+  <script>
+    document.getElementById("downloadForm").addEventListener("submit", function (event) {
+      event.preventDefault();
+      var inputUrl = document.getElementById("postUrl").value;
+      downloadFromInstagram(inputUrl);
+    });
+
+    function downloadFromInstagram(url) {
+      var regex = /https:\/\/www.instagram.com\/p\/([^/]+)\//;
+      var match = url.match(regex);
+      if (!match) {
+        console.log("Invalid Instagram URL");
+        return;
+      }
+      var mediaIdentifier = match[1];
+      var downloadUrl = `https://www.instagram.com/p/${mediaIdentifier}/?__a=1`;
+
+      fetch(downloadUrl)
+        .then(response => response.json())
+        .then(data => {
+          var mediaType = data.graphql.shortcode_media.__typename;
+          var mediaUrl;
+
+          switch (mediaType) {
+            case 'GraphImage':
+              mediaUrl = data.graphql.shortcode_media.display_url;
+              break;
+            case 'GraphVideo':
+              mediaUrl = data.graphql.shortcode_media.video_url;
+              break;
+            case 'GraphSidecar':
+              mediaUrl = data.graphql.shortcode_media.edge_sidecar_to_children.edges[0].node.display_url;
+              break;
+            default:
+              console.log("Unsupported media type:", mediaType);
+              return;
+          }
+
+          fetch(mediaUrl)
+            .then(response => response.blob())
+            .then(blob => {
+              var anchor = document.createElement('a');
+              anchor.href = URL.createObjectURL(blob);
+              anchor.download = `instagram_media.${getFileType(mediaUrl)}`;
+              anchor.click();
+            })
+            .catch(error => {
+              console.log("Download failed:", error);
+            });
+        })
+        .catch(error => {
+          console.log("Error:", error);
+        });
+    }
+    function getFileType(url) {
+      var extension = url.split('.').pop();
+      if (extension.includes("?")) {
+        extension = extension.split("?")[0];
+      }
+      return extension;
+    }
+  </script>
+  <div class="section">
+    <div class="image-container">
+      <img src="/codeless/icons8-instagram-200.png" alt="Image Description">
+    </div>
+    <div class="content-container">
+      <h2>Download Instagram videos from any device</h2>
+      <p>
+        Reelinsta IG video downloader lets you effortlessly grab mesmerizing videos directly from the Instagram app or
+        website. With just one click, you can seize the link from an Instagram video post by elegantly tapping on the
+        three dots atop the post and selecting the Link icon. You can perform the same enchantment from your favorite
+        browser. No unsightly watermarks shall mar your precious captures, enabling you to liberally repurpose and share
+        them anywhere your heart desires. Witness an exquisite preservation of video quality as you immerse yourself in
+        glorious HD and any format the video has been graciously uploaded in.
+      </p>
+
+    </div>
+  </div>
+  <div class="section">
+    <div class="image-container">
+      <img src="/codeless/icons8-instagram-reels-200h.png" alt="Image Description">
+    </div>
+    <div class="content-container">
+      <h2>Download Instagram Reels </h2>
+      <p>"Experience the joy of capturing and saving Instagram Reels with ease. Our Instagram Reel downloader empowers
+        you to effortlessly download captivating and entertaining Reels directly from the Instagram app or website. With
+        just a few clicks, you can save those mesmerizing moments to your device and enjoy them anytime, anywhere.
+
+        Our user-friendly tool allows you to seize the link of any Instagram Reel by simply tapping on the three dots at
+        the top right corner of the Reel and selecting the 'Copy Link' option. You can then paste the link into our
+        downloader, and voila! The Reel will be swiftly downloaded to your device, ready to be shared, rewatched, or
+        cherished.</p>
+
+    </div>
+  </div>
+  <div class="section">
+    <div class="image-container">
+      <img src="/codeless/icons8-instagram-old-200.png" alt="Image Description">
+    </div>
+    <div class="content-container">
+      <h2>Download Instagram Photos </h2>
+      <p>"Unlock the power of preserving your favorite Instagram moments with our Instagram Photo Downloader. With a
+        simple and intuitive process, you can now effortlessly download and save high-quality Instagram photos directly
+        to your device.
+
+        Our downloader allows you to capture the beauty and creativity of Instagram photography by easily extracting the
+        photo's URL. Simply navigate to the desired photo on the Instagram app or website, click on the three dots at
+        the top right corner of the photo, and select the 'Copy Link' option. Paste the link into our downloader, and
+        watch as the photo is swiftly downloaded and stored on your device.</p>
+    </div>
+  </div>
+  <div class="section">
+    <div class="image-container">
+      <img src="/codeless/icons8-instagram-300.png" alt="Image Description">
+    </div>
+    <div class="content-container">
+      <h2>Download Instagram Story </h2>
+      <p>Experience the thrill of capturing and saving Instagram Stories with our innovative Instagram Story Downloader.
+        Now you can effortlessly download and keep your favorite stories for future enjoyment.
+
+        Our user-friendly downloader allows you to seamlessly retrieve Instagram Stories from any user's profile. Simply
+        enter the username of the desired account, and our tool will retrieve the available stories for you. With just a
+        few clicks, you can preserve those fleeting moments and create a personal archive of captivating stories.</p>
+    </div>
+  </div>
+  <div class="section">
+    <div class="image-container">
+      <img src="/codeless/icons8-igtv-200 (1).png" alt="Image Description">
+    </div>
+    <div class="content-container">
+      <h2>Download Instagram Igtv </h2>
+      <p>Discover the convenience of downloading Instagram IGTV videos with our cutting-edge IGTV Downloader. Seamlessly
+        save and enjoy your favorite long-form videos from Instagram with just a few simple steps.
+
+        Our user-friendly tool allows you to effortlessly retrieve IGTV videos from any Instagram account. Whether it's
+        an insightful tutorial, an entertaining vlog, or a captivating documentary, our downloader empowers you to build
+        a personal collection of engaging content.
+
+        With our downloader, you can watch IGTV videos offline at your convenience. No more worrying about limited
+        internet connectivity or time restrictions. Simply download the videos and enjoy them anytime, anywhere.</p>
+    </div>
+  </div>
+  <h1>Reelinsta - The Best Instagram Downloader</h1>
+  <p>reelinsta is an online Instagram Downloader. Support download Videos, Photos, Stories, Reels and IGTV from
+    Instagram in few simple steps.
+
+    reelinsta.club is a website that allows you to download high quality Instagram content (download Instagram videos in
+    mp4 format, download Reels videos, download IGTV videos, download Photo, Download Story). Just paste the Instagram
+    link into the input box on the ReelInsta website to download any Instagram content.
+
+    Instagram Video Downloader works on web browser, supports download Instagram videos on all devices (PC, Mac,
+    Android, iOS) without installing supporting software.</p>
+  <h1>Why should you use reelinsta - Instagram Downloader?</h1>
+  <p>What is Instagram? Instagram (often abbreviated as IG or Insta) is a social network that allows users to share
+    popular photos and videos. Users can download the free Instagram app on iOS and Android platforms to enjoy a variety
+    of experiences by photo, story, reels and video editing modes.
+
+    Every day, millions of new photos and videos are posted on Instagram, but Instagram does not allow users to download
+    and store photos and videos to your device. The best way to get Instagram content is through third-party sites like
+    Reelinsta downloader.</p>
+  <h3>Features of Reelinsta.club:</h3>
+  <h4>- Download Instagram Video : Reelinsta allow download videos from Instagram (IG, Insta) with HD video quality
+    (without changing the quality of the original video).</h4>
+  <h4>- Instagram Photo Download : Instagram Photo Downloader on Reelinsta makes it easy to download and save Instagram
+    images easily. Allows image download of any Insta post.</h4>
+  <h4>- Download Instagram Reels Video : Reelinta.club allows you to download Instagram Reels videos in mp4 format on
+    all devices (PC, Mac, Android, iOS).</h4>
+  <h4>- Download IGTV Video : IGTV is a long video on Instagram, ReelInsta supports download IGTV videos to your device
+    for storage or playback when there is no 3G, wifi connection.</h4>
+  <h4>- Download Instagram Story : Instagram Story is a combination of photos and videos, creating a story that users
+    want to share with the world. Using Reelinsta.club, you can download Instagram Stories to view them offline.</h4>
+  <h4>- Instagram downloader(Private) : This feature allows you to download private Instagram photos, videos, stories,
+    reels and IGTV without installing software.</h4>
+  <h1>How to download photos and videos on Instagram?</h1>
+  <h4>Step 1: Open the Instagram app on phone or go to the Instagram.com website on PC and login your account.</h4>
+  <h4>Step 2: Find the content you want to download and click on the icon (...) above the post and then continue
+    pressing the Copy Link option.</h4>
+  <h4>Step 3: Go to the website reelinsta.club, paste the Instagram link you just copied into input box and press the
+    Download button.</h4>
+  <h4>Step 4: Photo and Video you want to download will appear, click Download Photo or Download Video button inside
+    under a photo or video, then the file will be saved to your device.</h4>
+  <h2>Reelinsta.club you can download any Instagram content (Videos, Photos, Reels, Story, IGTV). We will continuously
+    upgrade to bring you the best experience! Please share this tool with friends and family. Thank you!</h2>
+  <strong>Our download tool is designed to assist you in downloading videos and images posted by your own account.
+    However, we reserve the right not to provide the service if you use this tool to violate the privacy and materials
+    of others.
+
+    Read our Terms of Service<a href="/Termsofservice.html">Clickhere</a></strong>
+  <h1>-FAQ</H1>
+  <h3>What is Instagram Downloader?</h3>
+  <h4>Instagram Downloader is a tool that allows to download Videos, Photos, Story, Reels and IGTV from Instagram.
+    Supports downloadi any photos and videos from Instagram (Insta) on all devices (PC, Mac, Android, iPhone, iPad).
+  </h4>
+  <h3>How to download videos and photos on Instagram?</h3>
+  <h4>Step 1: Paste the Instagram url into the input box and press the Download button.</h4>
+  <h4>Step 2: Photo and Video you want to download will appear, click Download Photo or Download Video button inside
+    under a photo or video, then the file will be saved to your device.</h4>
+
+  <h3>How to download Instagram photos and videos on Android phone?</h3>
+  <h4>Copy the Instagram link → vist reelinsta.club → Paste the copied Instagram link into the input box → Download.
+  </h4>
+  <h3>Can I download Instagram Story?</h3>
+  <h4>Yes, you can download any Instagram Story. Click on the (...) icon above the Story post and continue pressing the
+    Copy Link option → Paste the copied link into reelinsta → Download.</h4>
+  <h3>Can I download videos and photos directly on Instagram?</h3>
+  <h4>Unfortunately, Instagram does not allow you to download any content. You can go to the reelinsta.club website and
+    paste the copied link to download any content on IG.</h4>
+  <h3>Do I have to pay to download Instagram videos and photos?</h3>
+  <h4>Reelinsta is a free Instagram downloader. You can download any Instagram content (Videos, Photos, Reels, Story,
+    IGTV) without any feature limitation.</h4>
+  <h3>Where are Instagram videos and photos saved after downloading?</h3>
+  <h4>Please check the "Downloads" folder in your phone or the "download history" section of your browser.</h4>
+  <footer>
+    &copy; 2023 Reelinsta.club<br>
+    <a href="/about.html">About</a> |
+    <a href="/Termsofservice.html">Terms of Service</a> |
+    <a href="/Privacypolicy.html">Privacy Policy</a> |
+    <a href="/contact.html">Contact</a>
+  </footer>
+</body>
+
+</html>
