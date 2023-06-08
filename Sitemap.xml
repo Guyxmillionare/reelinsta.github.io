@@ -9,53 +9,62 @@
 
 <url>
   <loc>https://reelinsta.club/</loc>
-  <lastmod>2023-05-31T20:40:46+00:00</lastmod>
+  <lastmod>2023-06-08T18:39:30+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://reelinsta.club/instavideodownloader.html</loc>
-  <lastmod>2023-05-31T20:40:46+00:00</lastmod>
+  <loc>https://reelinsta.club/index.html</loc>
+  <lastmod>2023-06-08T18:39:30+00:00</lastmod>
   <priority>0.80</priority>
 </url>
-
+<url>
+  <loc>https://reelinsta.club/instavideodownloader.html</loc>
+  <lastmod>2023-06-08T18:39:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
 <url>
   <loc>https://reelinsta.club/instaphotodownloader.html</loc>
-  <lastmod>2023-05-31T20:40:46+00:00</lastmod>
+  <lastmod>2023-06-08T18:39:30+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://reelinsta.club/reelsdownloader.html</loc>
-  <lastmod>2023-05-31T20:40:46+00:00</lastmod>
+  <lastmod>2023-06-08T18:39:30+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://reelinsta.club/Storydownloader.html</loc>
-  <lastmod>2023-05-31T20:40:46+00:00</lastmod>
+  <lastmod>2023-06-08T18:39:30+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://reelinsta.club/igtvdownloader.html</loc>
-  <lastmod>2023-05-31T20:40:46+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://reelinsta.club/about.html</loc>
-  <lastmod>2023-05-31T20:40:46+00:00</lastmod>
+  <lastmod>2023-06-08T18:39:30+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://reelinsta.club/Termsofservice.html</loc>
-  <lastmod>2023-05-31T20:40:46+00:00</lastmod>
+  <lastmod>2023-06-08T18:39:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://reelinsta.club/about.html</loc>
+  <lastmod>2023-06-08T18:39:30+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://reelinsta.club/Privacypolicy.html</loc>
-  <lastmod>2023-05-31T20:40:46+00:00</lastmod>
+  <lastmod>2023-06-08T18:39:30+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://reelinsta.club/contact.html</loc>
-  <lastmod>2023-05-31T20:40:46+00:00</lastmod>
+  <lastmod>2023-06-08T18:39:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://reelinsta.club/ads.txt</loc>
+  <lastmod>2023-06-08T18:39:30+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 
